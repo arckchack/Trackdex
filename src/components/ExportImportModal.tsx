@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { X, Copy, Check, Upload, Download, FileText, Code2, Trash2, AlertTriangle, Sparkles, FolderUp } from 'lucide-react';
+import { POKEMON_LIST } from '../data/pokemonData';
 
 interface ExportImportModalProps {
   isOpen: boolean;
@@ -8,6 +9,144 @@ interface ExportImportModalProps {
   shinyCaughtIds: number[];
   onImport: (normalIds: number[], shinyIds: number[]) => void;
   onClearAll: () => void;
+}
+
+function compressIdsToRanges(ids: number[]): string {
+  if (!ids || ids.length === 0) return '';
+  const sorted = Array.from(new Set(ids)).sort((a, b) => a - b);
+  const ranges: string[] = [];
+  let start = sorted[0];
+  let end = start;
+
+  for (let i = 1; i < sorted.length; i++) {
+    if (sorted[i] === end + 1) {
+      end = sorted[i];
+    } else {
+      ranges.push(start === end ? `${start}` : `${start}-${end}`);
+      start = sorted[i];
+      end = start;
+    }
+  }
+  ranges.push(start === end ? `${start}` : `${start}-${end}`);
+  return ranges.join(',');
+}
+
+function generateSimplifiedExportCode(normalIds: number[], shinyIds: number[]): string {
+  const normalStr = compressIdsToRanges(normalIds);
+  const shinyStr = compressIdsToRanges(shinyIds);
+
+  if (!normalStr && !shinyStr) {
+    return 'Ningún Pokémon capturado aún';
+  }
+
+  if (shinyStr) {
+    return `${normalStr || '0'} | Shiny: ${shinyStr}`;
+  }
+
+  return normalStr;
+}
+
+function parseImportPayload(rawInput: string): { normal: number[]; shiny: number[] } {
+  const trimmed = rawInput.trim();
+  if (!trimmed) {
+    throw new Error('El texto o archivo ingresado está vacío.');
+  }
+
+  // 1. Try parsing as JSON first
+  try {
+    const parsed = JSON.parse(trimmed);
+    if (typeof parsed === 'object' && parsed !== null) {
+      let normal: number[] = [];
+      let shiny: number[] = [];
+      if (Array.isArray(parsed.caughtIds)) {
+        normal = parsed.caughtIds.map((n: any) => Number(n)).filter((n: number) => !isNaN(n) && n > 0 && n <= 1025);
+      }
+      if (Array.isArray(parsed.shinyCaughtIds)) {
+        shiny = parsed.shinyCaughtIds.map((n: any) => Number(n)).filter((n: number) => !isNaN(n) && n > 0 && n <= 1025);
+      }
+      if (Array.isArray(parsed) && normal.length === 0) {
+        normal = parsed.map((n: any) => Number(n)).filter((n: number) => !isNaN(n) && n > 0 && n <= 1025);
+      }
+      if (normal.length > 0 || shiny.length > 0) {
+        return { normal: Array.from(new Set(normal)), shiny: Array.from(new Set(shiny)) };
+      }
+    }
+  } catch {
+    // Not JSON, continue to flexible string parsing
+  }
+
+  // 2. Simplified Code Parsing (e.g., "1-151 | Shiny: 25,150" or "1-151; S: 25")
+  let normalRaw = trimmed;
+  let shinyRaw = '';
+
+  if (trimmed.includes('|')) {
+    const parts = trimmed.split('|');
+    normalRaw = parts[0];
+    shinyRaw = parts[1] || '';
+  } else if (trimmed.toLowerCase().includes('shiny:')) {
+    const idx = trimmed.toLowerCase().indexOf('shiny:');
+    normalRaw = trimmed.slice(0, idx);
+    shinyRaw = trimmed.slice(idx + 6);
+  } else if (trimmed.includes(';')) {
+    const parts = trimmed.split(';');
+    normalRaw = parts[0];
+    shinyRaw = parts[1] || '';
+  }
+
+  normalRaw = normalRaw.replace(/^(normal|normales|n):\s*/i, '');
+  shinyRaw = shinyRaw.replace(/^(shiny|shinies|variocolor|s):\s*/i, '');
+
+  const parseSection = (sectionStr: string): number[] => {
+    if (!sectionStr.trim()) return [];
+    const pokemonByName = new Map<string, number>();
+    POKEMON_LIST.forEach((p) => {
+      pokemonByName.set(p.name.toLowerCase(), p.id);
+    });
+
+    const items = sectionStr
+      .replace(/[#\[\]'"]/g, '')
+      .split(/[\n,;\t\s]+/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    const resultSet = new Set<number>();
+
+    for (const item of items) {
+      if (/^\d+[-..]+\d+$/.test(item)) {
+        const parts = item.split(/[-..]+/).map(Number);
+        if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+          const start = Math.min(parts[0], parts[1]);
+          const end = Math.max(parts[0], parts[1]);
+          for (let i = start; i <= end; i++) {
+            if (i >= 1 && i <= 1025) resultSet.add(i);
+          }
+          continue;
+        }
+      }
+
+      const num = Number(item);
+      if (!isNaN(num) && num >= 1 && num <= 1025) {
+        resultSet.add(num);
+        continue;
+      }
+
+      const idFromName = pokemonByName.get(item.toLowerCase());
+      if (idFromName) {
+        resultSet.add(idFromName);
+      }
+    }
+
+    return Array.from(resultSet);
+  };
+
+  const normalIds = parseSection(normalRaw);
+  const shinyIds = parseSection(shinyRaw);
+
+  if (normalIds.length === 0 && shinyIds.length === 0) {
+    throw new Error('No se encontraron números (#1-#1025), rangos (ej. 1-151) ni nombres de Pokémon válidos.');
+  }
+
+  return { normal: normalIds, shiny: shinyIds };
 }
 
 export const ExportImportModal: React.FC<ExportImportModalProps> = ({
@@ -19,6 +158,7 @@ export const ExportImportModal: React.FC<ExportImportModalProps> = ({
   onClearAll,
 }) => {
   const [activeTab, setActiveTab] = useState<'code' | 'file'>('code');
+  const [exportFormat, setExportFormat] = useState<'text' | 'json'>('text');
   const [copiedCode, setCopiedCode] = useState(false);
   const [importCode, setImportCode] = useState('');
   const [importError, setImportError] = useState('');
@@ -28,12 +168,15 @@ export const ExportImportModal: React.FC<ExportImportModalProps> = ({
 
   if (!isOpen) return null;
 
+  const simplifiedCode = generateSimplifiedExportCode(caughtIds, shinyCaughtIds);
+
   const exportPayload = {
     app: 'TrackDex',
     version: '2.0',
     timestamp: new Date().toISOString(),
     totalNormalCaught: caughtIds.length,
     totalShinyCaught: shinyCaughtIds.length,
+    simplifiedCode: simplifiedCode,
     caughtIds: caughtIds,
     shinyCaughtIds: shinyCaughtIds,
   };
@@ -42,7 +185,8 @@ export const ExportImportModal: React.FC<ExportImportModalProps> = ({
 
   // --- METHOD 1: CODE HANDLERS ---
   const handleCopyCode = () => {
-    navigator.clipboard.writeText(JSON.stringify(exportPayload));
+    const textToCopy = exportFormat === 'text' ? simplifiedCode : exportJsonString;
+    navigator.clipboard.writeText(textToCopy);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 2000);
   };
@@ -51,29 +195,12 @@ export const ExportImportModal: React.FC<ExportImportModalProps> = ({
     setImportError('');
     setImportSuccess('');
     try {
-      if (!importCode.trim()) {
-        setImportError('Por favor pega el código de respaldo.');
-        return;
-      }
-      const parsed = JSON.parse(importCode);
-      let normal: number[] = [];
-      let shiny: number[] = [];
-
-      if (Array.isArray(parsed.caughtIds)) {
-        normal = parsed.caughtIds;
-      } else if (Array.isArray(parsed)) {
-        normal = parsed;
-      }
-
-      if (Array.isArray(parsed.shinyCaughtIds)) {
-        shiny = parsed.shinyCaughtIds;
-      }
-
-      onImport(normal, shiny);
-      setImportSuccess(`¡Éxito! Se restauraron ${normal.length} Pokémon Normales y ${shiny.length} Variocolor.`);
+      const result = parseImportPayload(importCode);
+      onImport(result.normal, result.shiny);
+      setImportSuccess(`¡Éxito! Se guardaron ${result.normal.length} Pokémon Normales y ${result.shiny.length} Variocolor.`);
       setImportCode('');
-    } catch {
-      setImportError('Código no válido. Asegúrate de pegar el texto completo.');
+    } catch (err: any) {
+      setImportError(err.message || 'Código no válido.');
     }
   };
 
@@ -101,28 +228,14 @@ export const ExportImportModal: React.FC<ExportImportModalProps> = ({
     reader.onload = (event) => {
       try {
         const content = event.target?.result as string;
-        const parsed = JSON.parse(content);
-        let normal: number[] = [];
-        let shiny: number[] = [];
-
-        if (Array.isArray(parsed.caughtIds)) {
-          normal = parsed.caughtIds;
-        } else if (Array.isArray(parsed)) {
-          normal = parsed;
-        }
-
-        if (Array.isArray(parsed.shinyCaughtIds)) {
-          shiny = parsed.shinyCaughtIds;
-        }
-
-        onImport(normal, shiny);
-        setImportSuccess(`¡Documento cargado con éxito! (${normal.length} Normales, ${shiny.length} Variocolor)`);
-      } catch {
-        setImportError('Error al leer el archivo. Debe ser un documento de texto (.txt o .json) válido generado por TrackDex.');
+        const result = parseImportPayload(content);
+        onImport(result.normal, result.shiny);
+        setImportSuccess(`¡Documento cargado con éxito! (${result.normal.length} Normales, ${result.shiny.length} Variocolor)`);
+      } catch (err: any) {
+        setImportError(err.message || 'Error al leer el archivo.');
       }
     };
     reader.readAsText(file);
-    // Reset file input value
     e.target.value = '';
   };
 
@@ -219,20 +332,47 @@ export const ExportImportModal: React.FC<ExportImportModalProps> = ({
             </div>
           )}
 
-          {/* TAB 1: POR CÓDIGO */}
+          {/* TAB 1: POR CÓDIGO / TEXTO */}
           {activeTab === 'code' && (
             <div className="space-y-4">
               {/* Copy Code Box */}
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-neutral-300 uppercase tracking-wider block">
-                  Exportar Código de Respaldo:
-                </label>
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <label className="text-xs font-semibold text-neutral-300 uppercase tracking-wider block">
+                    Guardar con un Texto (Código de Respaldo):
+                  </label>
+                  <div className="flex items-center gap-1.5 bg-[#0a0a0a] p-1 rounded-lg border border-neutral-800 text-[10px]">
+                    <button
+                      type="button"
+                      onClick={() => setExportFormat('text')}
+                      className={`px-2 py-0.5 rounded font-bold transition-all ${
+                        exportFormat === 'text'
+                          ? 'bg-emerald-600 text-white'
+                          : 'text-neutral-400 hover:text-white'
+                      }`}
+                    >
+                      Texto Corto
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setExportFormat('json')}
+                      className={`px-2 py-0.5 rounded font-bold transition-all ${
+                        exportFormat === 'json'
+                          ? 'bg-emerald-600 text-white'
+                          : 'text-neutral-400 hover:text-white'
+                      }`}
+                    >
+                      JSON Completo
+                    </button>
+                  </div>
+                </div>
+
                 <div className="relative">
                   <textarea
                     readOnly
-                    rows={3}
-                    value={JSON.stringify(exportPayload)}
-                    className="w-full p-3 bg-[#0a0a0a] border border-neutral-800 rounded-xl text-[11px] font-mono text-emerald-400 focus:outline-none resize-none pr-24"
+                    rows={exportFormat === 'json' ? 3 : 2}
+                    value={exportFormat === 'text' ? simplifiedCode : exportJsonString}
+                    className="w-full p-3 bg-[#0a0a0a] border border-neutral-800 rounded-xl text-xs font-mono text-emerald-400 focus:outline-none resize-none pr-24 font-bold"
                   />
                   <button
                     onClick={handleCopyCode}
@@ -243,27 +383,27 @@ export const ExportImportModal: React.FC<ExportImportModalProps> = ({
                   </button>
                 </div>
                 <p className="text-[11px] text-neutral-400">
-                  Copia este código para guardarlo en tus notas o pegar en otro navegador.
+                  Copia este texto o código para guardarlo en tus notas o transferirlo a cualquier otro dispositivo.
                 </p>
               </div>
 
               <div className="border-t border-neutral-800/80 pt-3 space-y-1.5">
                 <label className="text-xs font-semibold text-neutral-300 uppercase tracking-wider block">
-                  Restaurar por Código:
+                  Restaurar por Texto / Código:
                 </label>
                 <textarea
-                  rows={3}
+                  rows={2}
                   value={importCode}
                   onChange={(e) => setImportCode(e.target.value)}
-                  placeholder="Pega tu código de respaldo JSON aquí..."
-                  className="w-full p-3 bg-[#0a0a0a] border border-neutral-800 rounded-xl text-[11px] font-mono text-neutral-200 focus:outline-none focus:border-[#ff3e3e] resize-none"
+                  placeholder="Pega tu texto o código aquí (Ej: 1-151 o el JSON guardado)..."
+                  className="w-full p-3 bg-[#0a0a0a] border border-neutral-800 rounded-xl text-xs font-mono text-neutral-200 focus:outline-none focus:border-[#ff3e3e] resize-none"
                 />
                 <button
                   onClick={handleApplyCodeImport}
                   className="w-full py-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs border border-neutral-700 transition-all flex items-center justify-center gap-2 shadow-md"
                 >
                   <Upload className="w-4 h-4 text-[#ff3e3e]" />
-                  <span>Cargar y Aplicar Código</span>
+                  <span>Cargar y Aplicar Texto / Código</span>
                 </button>
               </div>
             </div>

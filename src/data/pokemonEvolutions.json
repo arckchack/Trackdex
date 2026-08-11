@@ -651,6 +651,14 @@
     "chainId": 10,
     "chain": [
       {
+        "id": 172,
+        "name": "Pichu",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 25,
         "name": "Pikachu",
         "evolvesFromId": 172,
@@ -663,14 +671,6 @@
         "name": "Raichu",
         "evolvesFromId": 25,
         "method": "Usar Piedra Trueno",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 172,
-        "name": "Pichu",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -680,6 +680,14 @@
     "chainId": 10,
     "chain": [
       {
+        "id": 172,
+        "name": "Pichu",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 25,
         "name": "Pikachu",
         "evolvesFromId": 172,
@@ -692,14 +700,6 @@
         "name": "Raichu",
         "evolvesFromId": 25,
         "method": "Usar Piedra Trueno",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 172,
-        "name": "Pichu",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -925,6 +925,14 @@
     "chainId": 14,
     "chain": [
       {
+        "id": 173,
+        "name": "Cleffa",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 35,
         "name": "Clefairy",
         "evolvesFromId": 173,
@@ -937,14 +945,6 @@
         "name": "Clefable",
         "evolvesFromId": 35,
         "method": "Usar Piedra Lunar",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 173,
-        "name": "Cleffa",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -954,6 +954,14 @@
     "chainId": 14,
     "chain": [
       {
+        "id": 173,
+        "name": "Cleffa",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 35,
         "name": "Clefairy",
         "evolvesFromId": 173,
@@ -966,14 +974,6 @@
         "name": "Clefable",
         "evolvesFromId": 35,
         "method": "Usar Piedra Lunar",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 173,
-        "name": "Cleffa",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -1025,6 +1025,14 @@
     "chainId": 16,
     "chain": [
       {
+        "id": 174,
+        "name": "Igglybuff",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 39,
         "name": "Jigglypuff",
         "evolvesFromId": 174,
@@ -1037,14 +1045,6 @@
         "name": "Wigglytuff",
         "evolvesFromId": 39,
         "method": "Usar Piedra Lunar",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 174,
-        "name": "Igglybuff",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -1054,6 +1054,14 @@
     "chainId": 16,
     "chain": [
       {
+        "id": 174,
+        "name": "Igglybuff",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 39,
         "name": "Jigglypuff",
         "evolvesFromId": 174,
@@ -1066,14 +1074,6 @@
         "name": "Wigglytuff",
         "evolvesFromId": 39,
         "method": "Usar Piedra Lunar",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 174,
-        "name": "Igglybuff",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -2744,6 +2744,14 @@
     "chainId": 47,
     "chain": [
       {
+        "id": 236,
+        "name": "Tyrogue",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 106,
         "name": "Hitmonlee",
         "evolvesFromId": 236,
@@ -2756,14 +2764,6 @@
         "name": "Hitmonchan",
         "evolvesFromId": 236,
         "method": "Nivel 20 + Defensa > Ataque",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 236,
-        "name": "Tyrogue",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       },
@@ -2781,6 +2781,14 @@
     "chainId": 47,
     "chain": [
       {
+        "id": 236,
+        "name": "Tyrogue",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 106,
         "name": "Hitmonlee",
         "evolvesFromId": 236,
@@ -2793,14 +2801,6 @@
         "name": "Hitmonchan",
         "evolvesFromId": 236,
         "method": "Nivel 20 + Defensa > Ataque",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 236,
-        "name": "Tyrogue",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       },
@@ -2939,6 +2939,14 @@
     "chainId": 51,
     "chain": [
       {
+        "id": 440,
+        "name": "Happiny",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 113,
         "name": "Chansey",
         "evolvesFromId": 440,
@@ -2951,14 +2959,6 @@
         "name": "Blissey",
         "evolvesFromId": 113,
         "method": "Alta Amistad",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 440,
-        "name": "Happiny",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -3144,18 +3144,18 @@
     "chainId": 57,
     "chain": [
       {
-        "id": 122,
-        "name": "Mr. Mime",
-        "evolvesFromId": 439,
-        "method": "Aprender Mimético",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 439,
         "name": "Mime Jr.",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 122,
+        "name": "Mr. Mime",
+        "evolvesFromId": 439,
+        "method": "Aprender Mimético",
         "isLegendary": false,
         "isMythical": false
       },
@@ -3202,18 +3202,18 @@
     "chainId": 59,
     "chain": [
       {
-        "id": 124,
-        "name": "Jynx",
-        "evolvesFromId": 238,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 238,
         "name": "Smoochum",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 124,
+        "name": "Jynx",
+        "evolvesFromId": 238,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       }
@@ -3223,18 +3223,18 @@
     "chainId": 60,
     "chain": [
       {
-        "id": 125,
-        "name": "Electabuzz",
-        "evolvesFromId": 239,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 239,
         "name": "Elekid",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 125,
+        "name": "Electabuzz",
+        "evolvesFromId": 239,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       },
@@ -3252,18 +3252,18 @@
     "chainId": 61,
     "chain": [
       {
-        "id": 126,
-        "name": "Magmar",
-        "evolvesFromId": 240,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 240,
         "name": "Magby",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 126,
+        "name": "Magmar",
+        "evolvesFromId": 240,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       },
@@ -3809,18 +3809,18 @@
     "chainId": 72,
     "chain": [
       {
-        "id": 143,
-        "name": "Snorlax",
-        "evolvesFromId": 446,
-        "method": "Alta Amistad",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 446,
         "name": "Munchlax",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 143,
+        "name": "Snorlax",
+        "evolvesFromId": 446,
+        "method": "Alta Amistad",
         "isLegendary": false,
         "isMythical": false
       }
@@ -4482,6 +4482,14 @@
     "chainId": 10,
     "chain": [
       {
+        "id": 172,
+        "name": "Pichu",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 25,
         "name": "Pikachu",
         "evolvesFromId": 172,
@@ -4496,20 +4504,20 @@
         "method": "Usar Piedra Trueno",
         "isLegendary": false,
         "isMythical": false
-      },
-      {
-        "id": 172,
-        "name": "Pichu",
-        "evolvesFromId": null,
-        "method": null,
-        "isLegendary": false,
-        "isMythical": false
       }
     ]
   },
   "173": {
     "chainId": 14,
     "chain": [
+      {
+        "id": 173,
+        "name": "Cleffa",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
       {
         "id": 35,
         "name": "Clefairy",
@@ -4525,20 +4533,20 @@
         "method": "Usar Piedra Lunar",
         "isLegendary": false,
         "isMythical": false
-      },
-      {
-        "id": 173,
-        "name": "Cleffa",
-        "evolvesFromId": null,
-        "method": null,
-        "isLegendary": false,
-        "isMythical": false
       }
     ]
   },
   "174": {
     "chainId": 16,
     "chain": [
+      {
+        "id": 174,
+        "name": "Igglybuff",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
       {
         "id": 39,
         "name": "Jigglypuff",
@@ -4552,14 +4560,6 @@
         "name": "Wigglytuff",
         "evolvesFromId": 39,
         "method": "Usar Piedra Lunar",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 174,
-        "name": "Igglybuff",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -4793,6 +4793,14 @@
     "chainId": 90,
     "chain": [
       {
+        "id": 298,
+        "name": "Azurill",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 183,
         "name": "Marill",
         "evolvesFromId": 298,
@@ -4805,14 +4813,6 @@
         "name": "Azumarill",
         "evolvesFromId": 183,
         "method": "Nivel 18",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 298,
-        "name": "Azurill",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -4822,6 +4822,14 @@
     "chainId": 90,
     "chain": [
       {
+        "id": 298,
+        "name": "Azurill",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 183,
         "name": "Marill",
         "evolvesFromId": 298,
@@ -4836,14 +4844,6 @@
         "method": "Nivel 18",
         "isLegendary": false,
         "isMythical": false
-      },
-      {
-        "id": 298,
-        "name": "Azurill",
-        "evolvesFromId": null,
-        "method": null,
-        "isLegendary": false,
-        "isMythical": false
       }
     ]
   },
@@ -4851,18 +4851,18 @@
     "chainId": 91,
     "chain": [
       {
-        "id": 185,
-        "name": "Sudowoodo",
-        "evolvesFromId": 438,
-        "method": "Aprender Mimético",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 438,
         "name": "Bonsly",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 185,
+        "name": "Sudowoodo",
+        "evolvesFromId": 438,
+        "method": "Aprender Mimético",
         "isLegendary": false,
         "isMythical": false
       }
@@ -5376,18 +5376,18 @@
     "chainId": 100,
     "chain": [
       {
-        "id": 202,
-        "name": "Wobbuffet",
-        "evolvesFromId": 360,
-        "method": "Nivel 15",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 360,
         "name": "Wynaut",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 202,
+        "name": "Wobbuffet",
+        "evolvesFromId": 360,
+        "method": "Nivel 15",
         "isLegendary": false,
         "isMythical": false
       }
@@ -5904,18 +5904,18 @@
     "chainId": 116,
     "chain": [
       {
-        "id": 226,
-        "name": "Mantine",
-        "evolvesFromId": 458,
-        "method": "Subir nivel",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 458,
         "name": "Mantyke",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 226,
+        "name": "Mantine",
+        "evolvesFromId": 458,
+        "method": "Subir nivel",
         "isLegendary": false,
         "isMythical": false
       }
@@ -6114,6 +6114,14 @@
     "chainId": 47,
     "chain": [
       {
+        "id": 236,
+        "name": "Tyrogue",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 106,
         "name": "Hitmonlee",
         "evolvesFromId": 236,
@@ -6126,14 +6134,6 @@
         "name": "Hitmonchan",
         "evolvesFromId": 236,
         "method": "Nivel 20 + Defensa > Ataque",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 236,
-        "name": "Tyrogue",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       },
@@ -6151,6 +6151,14 @@
     "chainId": 47,
     "chain": [
       {
+        "id": 236,
+        "name": "Tyrogue",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 106,
         "name": "Hitmonlee",
         "evolvesFromId": 236,
@@ -6163,14 +6171,6 @@
         "name": "Hitmonchan",
         "evolvesFromId": 236,
         "method": "Nivel 20 + Defensa > Ataque",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 236,
-        "name": "Tyrogue",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       },
@@ -6188,18 +6188,18 @@
     "chainId": 59,
     "chain": [
       {
-        "id": 124,
-        "name": "Jynx",
-        "evolvesFromId": 238,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 238,
         "name": "Smoochum",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 124,
+        "name": "Jynx",
+        "evolvesFromId": 238,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       }
@@ -6209,18 +6209,18 @@
     "chainId": 60,
     "chain": [
       {
-        "id": 125,
-        "name": "Electabuzz",
-        "evolvesFromId": 239,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 239,
         "name": "Elekid",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 125,
+        "name": "Electabuzz",
+        "evolvesFromId": 239,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       },
@@ -6238,18 +6238,18 @@
     "chainId": 61,
     "chain": [
       {
-        "id": 126,
-        "name": "Magmar",
-        "evolvesFromId": 240,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 240,
         "name": "Magby",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 126,
+        "name": "Magmar",
+        "evolvesFromId": 240,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       },
@@ -6280,6 +6280,14 @@
     "chainId": 51,
     "chain": [
       {
+        "id": 440,
+        "name": "Happiny",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 113,
         "name": "Chansey",
         "evolvesFromId": 440,
@@ -6292,14 +6300,6 @@
         "name": "Blissey",
         "evolvesFromId": 113,
         "method": "Alta Amistad",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 440,
-        "name": "Happiny",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -7816,6 +7816,14 @@
     "chainId": 90,
     "chain": [
       {
+        "id": 298,
+        "name": "Azurill",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 183,
         "name": "Marill",
         "evolvesFromId": 298,
@@ -7828,14 +7836,6 @@
         "name": "Azumarill",
         "evolvesFromId": 183,
         "method": "Nivel 18",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 298,
-        "name": "Azurill",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -8157,18 +8157,18 @@
     "chainId": 158,
     "chain": [
       {
-        "id": 315,
-        "name": "Roselia",
-        "evolvesFromId": 406,
-        "method": "Alta Amistad + De Día",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 406,
         "name": "Budew",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 315,
+        "name": "Roselia",
+        "evolvesFromId": 406,
+        "method": "Alta Amistad + De Día",
         "isLegendary": false,
         "isMythical": false
       },
@@ -9036,18 +9036,18 @@
     "chainId": 184,
     "chain": [
       {
-        "id": 358,
-        "name": "Chimecho",
-        "evolvesFromId": 433,
-        "method": "Alta Amistad + De Noche",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 433,
         "name": "Chingling",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 358,
+        "name": "Chimecho",
+        "evolvesFromId": 433,
+        "method": "Alta Amistad + De Noche",
         "isLegendary": false,
         "isMythical": false
       }
@@ -9070,18 +9070,18 @@
     "chainId": 100,
     "chain": [
       {
-        "id": 202,
-        "name": "Wobbuffet",
-        "evolvesFromId": 360,
-        "method": "Nivel 15",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 360,
         "name": "Wynaut",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 202,
+        "name": "Wobbuffet",
+        "evolvesFromId": 360,
+        "method": "Nivel 15",
         "isLegendary": false,
         "isMythical": false
       }
@@ -10172,18 +10172,18 @@
     "chainId": 158,
     "chain": [
       {
-        "id": 315,
-        "name": "Roselia",
-        "evolvesFromId": 406,
-        "method": "Alta Amistad + De Día",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 406,
         "name": "Budew",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 315,
+        "name": "Roselia",
+        "evolvesFromId": 406,
+        "method": "Alta Amistad + De Día",
         "isLegendary": false,
         "isMythical": false
       },
@@ -10201,18 +10201,18 @@
     "chainId": 158,
     "chain": [
       {
-        "id": 315,
-        "name": "Roselia",
-        "evolvesFromId": 406,
-        "method": "Alta Amistad + De Día",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 406,
         "name": "Budew",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 315,
+        "name": "Roselia",
+        "evolvesFromId": 406,
+        "method": "Alta Amistad + De Día",
         "isLegendary": false,
         "isMythical": false
       },
@@ -10771,18 +10771,18 @@
     "chainId": 184,
     "chain": [
       {
-        "id": 358,
-        "name": "Chimecho",
-        "evolvesFromId": 433,
-        "method": "Alta Amistad + De Noche",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 433,
         "name": "Chingling",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 358,
+        "name": "Chimecho",
+        "evolvesFromId": 433,
+        "method": "Alta Amistad + De Noche",
         "isLegendary": false,
         "isMythical": false
       }
@@ -10876,18 +10876,18 @@
     "chainId": 91,
     "chain": [
       {
-        "id": 185,
-        "name": "Sudowoodo",
-        "evolvesFromId": 438,
-        "method": "Aprender Mimético",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 438,
         "name": "Bonsly",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 185,
+        "name": "Sudowoodo",
+        "evolvesFromId": 438,
+        "method": "Aprender Mimético",
         "isLegendary": false,
         "isMythical": false
       }
@@ -10897,18 +10897,18 @@
     "chainId": 57,
     "chain": [
       {
-        "id": 122,
-        "name": "Mr. Mime",
-        "evolvesFromId": 439,
-        "method": "Aprender Mimético",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 439,
         "name": "Mime Jr.",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 122,
+        "name": "Mr. Mime",
+        "evolvesFromId": 439,
+        "method": "Aprender Mimético",
         "isLegendary": false,
         "isMythical": false
       },
@@ -10926,6 +10926,14 @@
     "chainId": 51,
     "chain": [
       {
+        "id": 440,
+        "name": "Happiny",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
         "id": 113,
         "name": "Chansey",
         "evolvesFromId": 440,
@@ -10938,14 +10946,6 @@
         "name": "Blissey",
         "evolvesFromId": 113,
         "method": "Alta Amistad",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
-        "id": 440,
-        "name": "Happiny",
-        "evolvesFromId": null,
-        "method": null,
         "isLegendary": false,
         "isMythical": false
       }
@@ -11068,18 +11068,18 @@
     "chainId": 72,
     "chain": [
       {
-        "id": 143,
-        "name": "Snorlax",
-        "evolvesFromId": 446,
-        "method": "Alta Amistad",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 446,
         "name": "Munchlax",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 143,
+        "name": "Snorlax",
+        "evolvesFromId": 446,
+        "method": "Alta Amistad",
         "isLegendary": false,
         "isMythical": false
       }
@@ -11312,18 +11312,18 @@
     "chainId": 116,
     "chain": [
       {
-        "id": 226,
-        "name": "Mantine",
-        "evolvesFromId": 458,
-        "method": "Subir nivel",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 458,
         "name": "Mantyke",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 226,
+        "name": "Mantine",
+        "evolvesFromId": 458,
+        "method": "Subir nivel",
         "isLegendary": false,
         "isMythical": false
       }
@@ -11504,18 +11504,18 @@
     "chainId": 60,
     "chain": [
       {
-        "id": 125,
-        "name": "Electabuzz",
-        "evolvesFromId": 239,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 239,
         "name": "Elekid",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 125,
+        "name": "Electabuzz",
+        "evolvesFromId": 239,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       },
@@ -11533,18 +11533,18 @@
     "chainId": 61,
     "chain": [
       {
-        "id": 126,
-        "name": "Magmar",
-        "evolvesFromId": 240,
-        "method": "Nivel 30",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 240,
         "name": "Magby",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 126,
+        "name": "Magmar",
+        "evolvesFromId": 240,
+        "method": "Nivel 30",
         "isLegendary": false,
         "isMythical": false
       },
@@ -19196,6 +19196,14 @@
         "method": null,
         "isLegendary": false,
         "isMythical": true
+      },
+      {
+        "id": 809,
+        "name": "Melmetal",
+        "evolvesFromId": 808,
+        "method": "400 Caramelos Meltan",
+        "isLegendary": false,
+        "isMythical": true
       }
     ]
   },
@@ -19203,10 +19211,18 @@
     "chainId": 429,
     "chain": [
       {
+        "id": 808,
+        "name": "Meltan",
+        "evolvesFromId": null,
+        "method": null,
+        "isLegendary": false,
+        "isMythical": true
+      },
+      {
         "id": 809,
         "name": "Melmetal",
         "evolvesFromId": 808,
-        "method": null,
+        "method": "400 Caramelos Meltan",
         "isLegendary": false,
         "isMythical": true
       }
@@ -20664,18 +20680,18 @@
     "chainId": 57,
     "chain": [
       {
-        "id": 122,
-        "name": "Mr. Mime",
-        "evolvesFromId": 439,
-        "method": "Aprender Mimético",
-        "isLegendary": false,
-        "isMythical": false
-      },
-      {
         "id": 439,
         "name": "Mime Jr.",
         "evolvesFromId": null,
         "method": null,
+        "isLegendary": false,
+        "isMythical": false
+      },
+      {
+        "id": 122,
+        "name": "Mr. Mime",
+        "evolvesFromId": 439,
+        "method": "Aprender Mimético",
         "isLegendary": false,
         "isMythical": false
       },
