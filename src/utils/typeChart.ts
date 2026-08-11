@@ -1,0 +1,420 @@
+// Type Effectiveness Matrix and Utilities
+import { PokemonType } from '../types';
+
+export const TYPE_LIST: PokemonType[] = [
+  'Normal', 'Fuego', 'Agua', 'Planta', 'Eléctrico', 'Hielo',
+  'Lucha', 'Veneno', 'Tierra', 'Volador', 'Psíquico', 'Bicho',
+  'Roca', 'Fantasma', 'Dragón', 'Siniestro', 'Acero', 'Hada'
+];
+
+export const TYPE_CHART: Record<PokemonType, Record<PokemonType, number>> = {
+  "Normal": {
+    "Normal": 1,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 0.5,
+    "Fantasma": 0,
+    "Dragón": 1,
+    "Siniestro": 1,
+    "Acero": 0.5,
+    "Hada": 1
+  },
+  "Fuego": {
+    "Normal": 1,
+    "Fuego": 0.5,
+    "Agua": 0.5,
+    "Planta": 2,
+    "Eléctrico": 1,
+    "Hielo": 2,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 2,
+    "Roca": 0.5,
+    "Fantasma": 1,
+    "Dragón": 0.5,
+    "Siniestro": 1,
+    "Acero": 2,
+    "Hada": 1
+  },
+  "Agua": {
+    "Normal": 1,
+    "Fuego": 2,
+    "Agua": 0.5,
+    "Planta": 0.5,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 2,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 2,
+    "Fantasma": 1,
+    "Dragón": 0.5,
+    "Siniestro": 1,
+    "Acero": 1,
+    "Hada": 1
+  },
+  "Planta": {
+    "Normal": 1,
+    "Fuego": 0.5,
+    "Agua": 2,
+    "Planta": 0.5,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 0.5,
+    "Tierra": 2,
+    "Volador": 0.5,
+    "Psíquico": 1,
+    "Bicho": 0.5,
+    "Roca": 2,
+    "Fantasma": 1,
+    "Dragón": 0.5,
+    "Siniestro": 1,
+    "Acero": 0.5,
+    "Hada": 1
+  },
+  "Eléctrico": {
+    "Normal": 1,
+    "Fuego": 1,
+    "Agua": 2,
+    "Planta": 0.5,
+    "Eléctrico": 0.5,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 0,
+    "Volador": 2,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 1,
+    "Dragón": 0.5,
+    "Siniestro": 1,
+    "Acero": 1,
+    "Hada": 1
+  },
+  "Hielo": {
+    "Normal": 1,
+    "Fuego": 0.5,
+    "Agua": 0.5,
+    "Planta": 2,
+    "Eléctrico": 1,
+    "Hielo": 0.5,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 2,
+    "Volador": 2,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 1,
+    "Dragón": 2,
+    "Siniestro": 1,
+    "Acero": 0.5,
+    "Hada": 1
+  },
+  "Lucha": {
+    "Normal": 2,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 2,
+    "Lucha": 1,
+    "Veneno": 0.5,
+    "Tierra": 1,
+    "Volador": 0.5,
+    "Psíquico": 0.5,
+    "Bicho": 0.5,
+    "Roca": 2,
+    "Fantasma": 0,
+    "Dragón": 1,
+    "Siniestro": 2,
+    "Acero": 2,
+    "Hada": 0.5
+  },
+  "Veneno": {
+    "Normal": 1,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 2,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 0.5,
+    "Tierra": 0.5,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 0.5,
+    "Fantasma": 0.5,
+    "Dragón": 1,
+    "Siniestro": 1,
+    "Acero": 0,
+    "Hada": 2
+  },
+  "Tierra": {
+    "Normal": 1,
+    "Fuego": 2,
+    "Agua": 1,
+    "Planta": 0.5,
+    "Eléctrico": 2,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 2,
+    "Tierra": 1,
+    "Volador": 0,
+    "Psíquico": 1,
+    "Bicho": 0.5,
+    "Roca": 2,
+    "Fantasma": 1,
+    "Dragón": 1,
+    "Siniestro": 1,
+    "Acero": 2,
+    "Hada": 1
+  },
+  "Volador": {
+    "Normal": 1,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 2,
+    "Eléctrico": 0.5,
+    "Hielo": 1,
+    "Lucha": 2,
+    "Veneno": 1,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 2,
+    "Roca": 0.5,
+    "Fantasma": 1,
+    "Dragón": 1,
+    "Siniestro": 1,
+    "Acero": 0.5,
+    "Hada": 1
+  },
+  "Psíquico": {
+    "Normal": 1,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 2,
+    "Veneno": 2,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 0.5,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 1,
+    "Dragón": 1,
+    "Siniestro": 0,
+    "Acero": 0.5,
+    "Hada": 1
+  },
+  "Bicho": {
+    "Normal": 1,
+    "Fuego": 0.5,
+    "Agua": 1,
+    "Planta": 2,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 0.5,
+    "Veneno": 0.5,
+    "Tierra": 1,
+    "Volador": 0.5,
+    "Psíquico": 2,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 0.5,
+    "Dragón": 1,
+    "Siniestro": 2,
+    "Acero": 0.5,
+    "Hada": 0.5
+  },
+  "Roca": {
+    "Normal": 1,
+    "Fuego": 2,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 2,
+    "Lucha": 0.5,
+    "Veneno": 1,
+    "Tierra": 0.5,
+    "Volador": 2,
+    "Psíquico": 1,
+    "Bicho": 2,
+    "Roca": 1,
+    "Fantasma": 1,
+    "Dragón": 1,
+    "Siniestro": 1,
+    "Acero": 0.5,
+    "Hada": 1
+  },
+  "Fantasma": {
+    "Normal": 0,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 2,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 2,
+    "Dragón": 1,
+    "Siniestro": 0.5,
+    "Acero": 1,
+    "Hada": 1
+  },
+  "Dragón": {
+    "Normal": 1,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 1,
+    "Dragón": 2,
+    "Siniestro": 1,
+    "Acero": 0.5,
+    "Hada": 0
+  },
+  "Siniestro": {
+    "Normal": 1,
+    "Fuego": 1,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 0.5,
+    "Veneno": 1,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 2,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 2,
+    "Dragón": 1,
+    "Siniestro": 0.5,
+    "Acero": 1,
+    "Hada": 0.5
+  },
+  "Acero": {
+    "Normal": 1,
+    "Fuego": 0.5,
+    "Agua": 0.5,
+    "Planta": 1,
+    "Eléctrico": 0.5,
+    "Hielo": 2,
+    "Lucha": 1,
+    "Veneno": 1,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 2,
+    "Fantasma": 1,
+    "Dragón": 1,
+    "Siniestro": 1,
+    "Acero": 0.5,
+    "Hada": 2
+  },
+  "Hada": {
+    "Normal": 1,
+    "Fuego": 0.5,
+    "Agua": 1,
+    "Planta": 1,
+    "Eléctrico": 1,
+    "Hielo": 1,
+    "Lucha": 2,
+    "Veneno": 0.5,
+    "Tierra": 1,
+    "Volador": 1,
+    "Psíquico": 1,
+    "Bicho": 1,
+    "Roca": 1,
+    "Fantasma": 1,
+    "Dragón": 2,
+    "Siniestro": 2,
+    "Acero": 0.5,
+    "Hada": 1
+  }
+};
+
+export interface TypeEffectiveness {
+  weaknesses4x: PokemonType[];
+  weaknesses2x: PokemonType[];
+  resistances05x: PokemonType[];
+  resistances025x: PokemonType[];
+  immunities0x: PokemonType[];
+}
+
+export function getPokemonWeaknesses(pokemonTypes: PokemonType[]): TypeEffectiveness {
+  const multipliers: Record<PokemonType, number> = {
+    Normal: 1, Fuego: 1, Agua: 1, Planta: 1, Eléctrico: 1, Hielo: 1,
+    Lucha: 1, Veneno: 1, Tierra: 1, Volador: 1, Psíquico: 1, Bicho: 1,
+    Roca: 1, Fantasma: 1, Dragón: 1, Siniestro: 1, Acero: 1, Hada: 1
+  };
+
+  TYPE_LIST.forEach((atkType) => {
+    let mult = 1;
+    pokemonTypes.forEach((defType) => {
+      if (TYPE_CHART[atkType] && TYPE_CHART[atkType][defType] !== undefined) {
+        mult *= TYPE_CHART[atkType][defType];
+      }
+    });
+    multipliers[atkType] = mult;
+  });
+
+  const weaknesses4x: PokemonType[] = [];
+  const weaknesses2x: PokemonType[] = [];
+  const resistances05x: PokemonType[] = [];
+  const resistances025x: PokemonType[] = [];
+  const immunities0x: PokemonType[] = [];
+
+  (Object.keys(multipliers) as PokemonType[]).forEach((t) => {
+    const val = multipliers[t];
+    if (val === 4) weaknesses4x.push(t);
+    else if (val === 2) weaknesses2x.push(t);
+    else if (val === 0.5) resistances05x.push(t);
+    else if (val === 0.25) resistances025x.push(t);
+    else if (val === 0) immunities0x.push(t);
+  });
+
+  return {
+    weaknesses4x,
+    weaknesses2x,
+    resistances05x,
+    resistances025x,
+    immunities0x
+  };
+}

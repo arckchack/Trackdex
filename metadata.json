@@ -1,0 +1,6 @@
+{
+  "name": "TrackDex - Pokémon Tracker Gen 1-9",
+  "description": "Seguimiento interactivo de Pokédex Nacional (Generaciones 1 a 9, 1025 Pokémon), apartado de solo Shiny, y sistema de guardado dual por código y archivo de texto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
